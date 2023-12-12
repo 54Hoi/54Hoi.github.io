@@ -47,13 +47,14 @@ function setup() {
     enemies = new ArrayList();
     score = 0;
     gameOver = false;
+    soundFormats('mp3');
     
 }
 
 function preload() {
     bg = loadImage("background.png");
     playerImage = loadImage("player.jpg");
-    soundFormats('mp3');
+    
     file = loadSound("bgm.mp3");
     // Ensure file is loaded before playing
     if (file) {
