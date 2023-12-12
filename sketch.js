@@ -71,7 +71,7 @@ function draw() {
         textAlign(RIGHT_ARROW);
         textSize(20);
         fill(255);
-        text("Score: " + score, width - 20, 30);
+        text("Score: " + score, width - 50, 30);
     } else {
         textAlign(CENTER, CENTER);
         textSize(40);
