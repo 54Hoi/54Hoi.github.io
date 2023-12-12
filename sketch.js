@@ -47,17 +47,18 @@ function setup() {
     enemies = new ArrayList();
     score = 0;
     gameOver = false;
+    
+}
+
+function preload() {
+    bg = loadImage("background.png");
+    playerImage = loadImage("player.jpg");
     file = loadSound("bgm.mp3");
     // Ensure file is loaded before playing
     if (file) {
         file.play();
         file.loop();
     }
-}
-
-function preload() {
-    bg = loadImage("background.png");
-    playerImage = loadImage("player.jpg");
     
 }
 function draw() {
