@@ -58,9 +58,10 @@ function setup() {
 function preload() {
     bg = loadImage("background.png");
     playerImage = loadImage("player.jpg");
-    file = loadSound("bgm.mp3");
+    
 }
 function draw() {
+    file = loadSound("bgm.mp3");
     background(0, 0, 255);
     image(bg, 0, 0, 1000, 700);
     if (!gameOver) {
