@@ -47,7 +47,7 @@ function setup() {
     enemies = new ArrayList();
     score = 0;
     gameOver = false;
-    
+    file = loadSound("bgm.mp3");
     // Ensure file is loaded before playing
     if (file) {
         file.play();
@@ -61,7 +61,6 @@ function preload() {
     
 }
 function draw() {
-    file = loadSound("bgm.mp3");
     background(0, 0, 255);
     image(bg, 0, 0, 1000, 700);
     if (!gameOver) {
