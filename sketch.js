@@ -40,7 +40,7 @@ let file;
 let f;
 
 function setup() {
-    createCanvas(1000, 600);
+    createCanvas(1000, 700);
     enemyGif = loadImage("enemy2.GIF");
     gif =loadImage("result.gif");
     player = createVector(width / 2, height - 50);
@@ -63,7 +63,7 @@ function preload() {
 }
 function draw() {
     background(0, 0, 255);
-    image(bg, 0, 0, 1000, 600);
+    image(bg, 0, 0, 1000, 700);
     if (!gameOver) {
         updatePlayer();
         drawPlayer();
