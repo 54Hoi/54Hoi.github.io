@@ -68,7 +68,7 @@ function draw() {
         drawPlayer();
         updateEnemies();
         drawEnemies();
-        textAlign(RIGHT_ARROW);
+        //textAlign(RIGHT_ARROW);
         textSize(20);
         fill(255);
         text("Score: " + score, width - 100, 30);
