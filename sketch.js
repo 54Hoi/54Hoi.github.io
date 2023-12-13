@@ -37,7 +37,7 @@ let enemies;
 let score;
 let gameOver;
 let file;
-let slider
+var slider
 let f;
 
 function preload() {
