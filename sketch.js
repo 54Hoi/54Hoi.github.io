@@ -50,7 +50,7 @@ function preload() {
 }
 
 function setup() {
-    createCanvas(1000, 700);
+    createCanvas(1000, 600);
     slider=createSlider(0,1,0.5,0.01);
     enemyGif = loadImage("enemy2.GIF");
     gif =loadImage("result.gif");
