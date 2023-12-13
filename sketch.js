@@ -51,7 +51,7 @@ function setup() {
     bgVideo.size(1000,600);
     bgVideo.volume(1);
     bgVideo.loop();
-    bgVideo.hide();
+   // bgVideo.hide();
       
 }
 
