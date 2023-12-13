@@ -1,9 +1,10 @@
 html, body {
   margin: 0;
   padding: 0;
+  margin-top: 10px;
+  margin-left: 140px;
 }
 canvas {
   display: block;
-  margin-top: 10px;
-  margin-left: 140px;
+
 }
