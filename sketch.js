@@ -39,6 +39,15 @@ let gameOver;
 let file;
 let f;
 
+function preload() {
+    bg = loadImage("background.png");
+    playerImage = loadImage("player.jpg");
+    
+    file = loadSound("bgm.mp3");
+    // Ensure file is loaded before playing
+    
+}
+
 function setup() {
     createCanvas(1000, 700);
     enemyGif = loadImage("enemy2.GIF");
@@ -47,21 +56,14 @@ function setup() {
     enemies = new ArrayList();
     score = 0;
     gameOver = false;
-    
-}
-
-function preload() {
-    bg = loadImage("background.png");
-    playerImage = loadImage("player.jpg");
-    
-    file = loadSound("bgm.mp3");
-    // Ensure file is loaded before playing
     if (file) {
         file.play();
         file.loop();
     }
     
 }
+
+
 function draw() {
     background(0, 0, 255);
     image(bg, 0, 0, 1000, 700);
