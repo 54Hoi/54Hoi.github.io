@@ -38,20 +38,22 @@ var file;
 var slider
 var f;
 let startTextAlpha = 0; 
-
-
-
-function setup() {
-    createCanvas(1000, 600);
+function preload() {
     bg = loadImage("background.png");
     playerImage = loadImage("player.jpg");
     file = loadSound("bgm.mp3");
     // Ensure file is loaded before playing
+    
+}
+
+function setup() {
+    createCanvas(1000, 600);
     bgVideo = createVideo("menu.mp4");
     bgVideo.size(1000,600);
     bgVideo.volume(1);
     bgVideo.loop();
-   // bgVideo.hide();
+    bgVideo.hide();
+    
       
 }
 
