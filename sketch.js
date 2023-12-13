@@ -47,7 +47,6 @@ function setup() {
     enemies = new ArrayList();
     score = 0;
     gameOver = false;
-    //soundFormats('mp3');
     
 }
 
