@@ -38,12 +38,12 @@ let score;
 let gameOver;
 var file;
 var slider
-let f;
+var f;
 
 function preload() {
     bg = loadImage("background.png");
     playerImage = loadImage("player.jpg");
-    
+    f=loadSound("clickSound.mp3");
     file = loadSound("bgm.mp3");
     // Ensure file is loaded before playing
     
@@ -60,7 +60,10 @@ function setup() {
     gameOver = false;
     file.play();
     file.loop();
-    
+    if(mousePressed()){
+        f.play();
+        f.stop();
+    }
     
 }
 
@@ -80,8 +83,8 @@ function draw() {
         text("Score: " + score, width - 100, 30);
     } else {
         textAlign(CENTER, CENTER);
-        textSize(40);
-        fill(255, 0, 0); // text("Game Over", width/2, height/2 - 50);
+        //textSize(40);
+       // fill(255, 0, 0); // text("Game Over", width/2, height/2 - 50);
         textSize(40);
         fill(255);
         text("Score: " + score, width / 2, height / 2 + 20);
