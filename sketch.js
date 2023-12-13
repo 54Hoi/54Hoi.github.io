@@ -70,7 +70,7 @@ function draw() {
     image(bg, 0, 0, 1000, 600);
     file.setVolume(slider.value());
     if (!gameOver) {
-        if(mousePressed()){
+        if(checkEnemyClick()){
         //file.stop();
         f.play();
         f.stop();
