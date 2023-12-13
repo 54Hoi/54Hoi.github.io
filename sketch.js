@@ -61,8 +61,10 @@ function setup() {
     file.play();
     file.loop();
     if(mousePressed()){
+        file.stop();
         f.play();
         f.stop();
+        file.play();
     }
     
 }
