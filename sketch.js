@@ -23,11 +23,9 @@ class ArrayList extends Array {
         this.length = 0;
     }
 }
-
-
-// [processing-p5-convert] import processing.serial.*;
-// [processing-p5-convert] import processing.sound.*;
-// [processing-p5-convert] import gifAnimation.*;
+var bgVideo;
+let startButton;
+let isGameStarted = false;
 let bg;
 let playerImage;
 let enemyGif;
@@ -39,11 +37,11 @@ let gameOver;
 var file;
 var slider
 var f;
+let startTextAlpha = 0; 
 
 function preload() {
     bg = loadImage("background.png");
     playerImage = loadImage("player.jpg");
-    f=loadSound("clickSound.mp3");
     file = loadSound("bgm.mp3");
     // Ensure file is loaded before playing
     
@@ -51,8 +49,24 @@ function preload() {
 
 function setup() {
     createCanvas(1000, 600);
-    slider=createSlider(0,1,0.5,0.01);
+    bgVideo = createVideo("menu.mp4");
+    bgVideo.size(1000,600);
+    bgVideo.volume(1);
+    bgVideo.loop();
+    bgVideo.hide();
+    
+      
+}
+
+function startGame() {
+    isGameStarted = true;
+    bgVideo.stop(); // 停止播放菜单视频
+    bgVideo.remove(); // 移除视频元素
+    
+
+    // 初始化游戏状态...
     enemyGif = loadImage("enemy2.GIF");
+    slider=createSlider(0,1,0.5,0.01);
     gif =loadImage("result.gif");
     player = createVector(width / 2, height - 50);
     enemies = new ArrayList();
@@ -60,15 +74,16 @@ function setup() {
     gameOver = false;
     file.play();
     file.loop();
-    
-    
 }
 
-
 function draw() {
-    background(0, 0, 255);
-    image(bg, 0, 0, 1000, 600);
-    file.setVolume(slider.value());
+    if (!isGameStarted) {
+        // 主菜单画面
+        drawMainMenu();
+    } else {
+      background(0, 0, 255);
+      image(bg, 0, 0, 1000, 600);
+      file.setVolume(slider.value());
     if (!gameOver) {
         updatePlayer();
         drawPlayer();
@@ -92,9 +107,33 @@ function draw() {
         text("Play Again", width / 2, height / 2 + 110);
         image(gif, 410, 100, 184, 194);
     }
+  }
+    
 }
+function drawMainMenu() {
+    let img=bgVideo.get();
+    image(img, 0, 0, width, height);
+    textAlign(CENTER, CENTER);
+    textSize(50);
+    fill(255, startTextAlpha); // 使用alpha值
+    text("Press to Start", width / 2, height / 1.1);
+    
+    // 控制alpha值变化
+    startTextAlpha += 5; // 可以调整变化的速度
+    
+    // 重置alpha值
+    if (startTextAlpha > 255) {
+        startTextAlpha = 0;
+    }
+}
+
 function mousePressed() {
-    if (gameOver) {
+    if (!isGameStarted) {
+        // 在主菜单点击时触发的操作
+        // 您可以在这里处理其他主菜单的点击逻辑
+        startGame();
+    } else {
+      if (gameOver) {
         if (
             mouseX > width / 2 - 100 &&
             mouseX < width / 2 + 100 &&
@@ -106,6 +145,7 @@ function mousePressed() {
     } else {
         checkEnemyClick();
     }
+  }
 }
 function updatePlayer() {
     player.x = mouseX;
