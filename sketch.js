@@ -39,7 +39,10 @@ var slider
 var f;
 let startTextAlpha = 0; 
 
-
+function preload() {
+    bgVideo = createVideo("path/to/menu.mp4");
+    // 其他预加载的内容
+}
 
 function setup() {
     createCanvas(1000, 600);
@@ -47,7 +50,7 @@ function setup() {
     playerImage = loadImage("player.jpg");
     file = loadSound("bgm.mp3");
     // Ensure file is loaded before playing
-    bgVideo = createVideo("menu.mp4");
+    //bgVideo = createVideo("menu.mp4");
     bgVideo.size(1000,600);
     bgVideo.volume(1);
     bgVideo.loop();
