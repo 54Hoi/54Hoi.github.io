@@ -60,12 +60,7 @@ function setup() {
     gameOver = false;
     file.play();
     file.loop();
-    if(mousePressed()){
-        file.stop();
-        f.play();
-        f.stop();
-        file.play();
-    }
+    
     
 }
 
@@ -75,6 +70,12 @@ function draw() {
     image(bg, 0, 0, 1000, 600);
     file.setVolume(slider.value());
     if (!gameOver) {
+        if(mousePressed()){
+        //file.stop();
+        f.play();
+        f.stop();
+        //file.play();
+    }
         updatePlayer();
         drawPlayer();
         updateEnemies();
