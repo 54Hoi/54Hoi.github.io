@@ -36,7 +36,7 @@ let player;
 let enemies;
 let score;
 let gameOver;
-let file;
+var file;
 var slider
 let f;
 
