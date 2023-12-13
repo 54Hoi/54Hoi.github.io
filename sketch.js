@@ -56,10 +56,8 @@ function setup() {
     enemies = new ArrayList();
     score = 0;
     gameOver = false;
-    if (file) {
-        file.play();
-        file.loop();
-    }
+    file.play();
+    file.loop();
     
 }
 
