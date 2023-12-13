@@ -37,6 +37,7 @@ let enemies;
 let score;
 let gameOver;
 let file;
+let slider
 let f;
 
 function preload() {
@@ -50,6 +51,7 @@ function preload() {
 
 function setup() {
     createCanvas(1000, 700);
+    slider=createSlider(0,1,0.5,0.01);
     enemyGif = loadImage("enemy2.GIF");
     gif =loadImage("result.gif");
     player = createVector(width / 2, height - 50);
@@ -59,12 +61,14 @@ function setup() {
     file.play();
     file.loop();
     
+    
 }
 
 
 function draw() {
     background(0, 0, 255);
     image(bg, 0, 0, 1000, 700);
+    file.setVolume(slider.value());
     if (!gameOver) {
         updatePlayer();
         drawPlayer();
