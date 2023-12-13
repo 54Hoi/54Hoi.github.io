@@ -67,7 +67,7 @@ function setup() {
 
 function draw() {
     background(0, 0, 255);
-    image(bg, 0, 0, 1000, 700);
+    image(bg, 0, 0, 1000, 600);
     file.setVolume(slider.value());
     if (!gameOver) {
         updatePlayer();
