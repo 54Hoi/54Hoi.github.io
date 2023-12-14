@@ -119,12 +119,7 @@ function draw() {
   }
     
 }
-function drawEnd(){
-  let img2=endVideo.get();
-  image(img2, 0, 0, width, height);
 
-  
-}
 function drawMainMenu() {
     let img=bgVideo.get();
     image(img, 0, 0, width, height);
@@ -140,6 +135,10 @@ function drawMainMenu() {
     if (startTextAlpha > 255) {
         startTextAlpha = 0;
     }
+}
+function drawEnd(){
+  let img2=endVideo.get();
+  image(img2, 0, 0, width, height);  
 }
 
 function mousePressed() {
