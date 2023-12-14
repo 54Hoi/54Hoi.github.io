@@ -23,6 +23,7 @@ class ArrayList extends Array {
         this.length = 0;
     }
 }
+var endVideo;
 var bgVideo;
 let startButton;
 let isGameStarted = false;
@@ -53,8 +54,11 @@ function setup() {
     bgVideo.volume(1);
     bgVideo.loop();
     bgVideo.hide();
-    
-      
+    endVideo = createVideo("end.mp4");
+    endVideo.size(1000,600);
+    endVideo.volume(0);
+    endVideo.loop();
+    endVideo.hide();  
 }
 
 function startGame() {
@@ -83,7 +87,7 @@ function draw() {
       background(0, 0, 255);
       image(bg, 0, 0, 1000, 600);
       file.setVolume(slider.value());
-    if (!gameOver) {
+      if (!gameOver) {
         updatePlayer();
         drawPlayer();
         updateEnemies();
@@ -92,7 +96,13 @@ function draw() {
         textSize(20);
         fill(255);
         text("Score: " + score, width - 100, 30);
-    } else {
+        if(score==10){
+          file.stop();
+          endVideo.volume(1);
+          drawEnd();
+          gameOver=false; 
+        }
+    } else if(gameOver==true&&score!=10){
         textAlign(CENTER, CENTER);
         //textSize(40);
        // fill(255, 0, 0); // text("Game Over", width/2, height/2 - 50);
@@ -108,6 +118,12 @@ function draw() {
     }
   }
     
+}
+function drawEnd(){
+  let img2=endVideo.get();
+  image(img2, 0, 0, width, height);
+
+  
 }
 function drawMainMenu() {
     let img=bgVideo.get();
