@@ -96,13 +96,13 @@ function draw() {
         textSize(20);
         fill(255);
         text("Score: " + score, width - 100, 30);
-        if(score==10){
+        if(score==50){
           file.stop();
           endVideo.volume(1);
           drawEnd();
           gameOver=false; 
         }
-    } else if(gameOver==true&&score!=10){
+    } else if(gameOver==true&&score!=50){
         textAlign(CENTER, CENTER);
         //textSize(40);
        // fill(255, 0, 0); // text("Game Over", width/2, height/2 - 50);
